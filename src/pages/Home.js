@@ -18,8 +18,8 @@ const Home = () => {
     return (
         <>
             <div style={{textAlign:"center"}}>
+                <Link to="/rejected-users"><button>Rejected List</button></Link>
                 <button>Accepted List</button>
-                <button>Rejected List</button>
             </div>
             {data.length > 0 && data.map((ele,index) => {
                 return (
