@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [data, setData] = useState([])
@@ -24,11 +24,13 @@ const Home = () => {
             {data.length > 0 && data.map((ele,index) => {
                 return (
                     <div key={index}>
-                        <h3>Name : {ele.name}</h3>
-                        <div>Id : {ele.id}</div>
-                        <div>Email : {ele.email}</div>
-                        <div>Phone : {ele.phone}</div>
-                        <div>Website : {ele.website}</div>
+                        <Link to={`/user/${ele.id}`}>
+                            <h3>Name : {ele.name}</h3>
+                            <div>Id : {ele.id}</div>
+                            <div>Email : {ele.email}</div>
+                            <div>Phone : {ele.phone}</div>
+                            <div>Website : {ele.website}</div>
+                        </Link>
                     </div>
                 )
             })
