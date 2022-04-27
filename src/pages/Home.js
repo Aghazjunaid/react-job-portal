@@ -6,12 +6,20 @@ const Home = () => {
     function getUsers(){
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
-        .then(result => setData(result))
+        .then(result => {
+            setData(result)
+            localStorage.setItem('users',JSON.stringify(result))
+        })
         .catch(err => console.log(err))
     }
 
     useEffect(()=>{
-        getUsers()
+        let userData = localStorage.getItem('users')
+        if(userData){
+            setData(JSON.parse(userData))
+        }else{
+            getUsers()
+        }
     },[])
     console.log(data)
 

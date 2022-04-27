@@ -17,6 +17,9 @@ const UserDetail = () => {
     console.log(user)
     function acceptFunc(){
         let acceptedData = localStorage.getItem("accepted")
+        let userData = localStorage.getItem('users')
+        let newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
+        localStorage.setItem('users',JSON.stringify(newArr))
         if(acceptedData){
             let parsedData = JSON.parse(acceptedData)
             parsedData.push(user)
@@ -27,11 +30,14 @@ const UserDetail = () => {
             localStorage.setItem("accepted",JSON.stringify(arr))
         }
         alert("User is accepted")
-        navigate('/')
+        navigate('/accepted-users')
     }
 
     function rejectFun(){
         let acceptedData = localStorage.getItem("rejected")
+        let userData = localStorage.getItem('users')
+        let newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
+        localStorage.setItem('users',JSON.stringify(newArr))
         if(acceptedData){
             let parsedData = JSON.parse(acceptedData)
             parsedData.push(user)
@@ -42,7 +48,7 @@ const UserDetail = () => {
             localStorage.setItem("rejected",JSON.stringify(arr))
         }
         alert("User is rejected")
-        navigate('/')
+        navigate('/rejected-users')
     }
 
     return (

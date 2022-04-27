@@ -10,7 +10,7 @@ const RejectedPage = () => {
     },[])
     return (
         <>
-            {data.length > 0 && data.map((ele,index) => {
+            {data ? data.map((ele,index) => {
                 return (
                     <div key={index}>
                         <h3>Name : {ele.name}</h3>
@@ -20,7 +20,7 @@ const RejectedPage = () => {
                         <div>Website : {ele.website}</div>
                     </div>
                 )
-            })
+            }): <h1>No User is rejected till now</h1>
             }
         </>
     )
