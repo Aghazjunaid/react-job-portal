@@ -16,11 +16,33 @@ const UserDetail = () => {
 
     console.log(user)
     function acceptFunc(){
+        let acceptedData = localStorage.getItem("accepted")
+        if(acceptedData){
+            let parsedData = JSON.parse(acceptedData)
+            parsedData.push(user)
+            localStorage.setItem("accepted",JSON.stringify(parsedData))
+        } else {
+            let arr = []
+            arr.push(user)
+            localStorage.setItem("accepted",JSON.stringify(arr))
+        }
         alert("User is accepted")
+        navigate('/')
     }
 
     function rejectFun(){
+        let acceptedData = localStorage.getItem("rejected")
+        if(acceptedData){
+            let parsedData = JSON.parse(acceptedData)
+            parsedData.push(user)
+            localStorage.setItem("rejected",JSON.stringify(parsedData))
+        } else {
+            let arr = []
+            arr.push(user)
+            localStorage.setItem("rejected",JSON.stringify(arr))
+        }
         alert("User is rejected")
+        navigate('/')
     }
 
     return (
