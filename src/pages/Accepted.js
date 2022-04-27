@@ -10,7 +10,7 @@ const AcceptedPage = () => {
     },[])
     return (
         <>
-            {data.length > 0 && data.map((ele,index) => {
+            {data ? data.map((ele,index) => {
                 return (
                     <div key={index}>
                         <h3>Name : {ele.name}</h3>
@@ -20,7 +20,7 @@ const AcceptedPage = () => {
                         <div>Website : {ele.website}</div>
                     </div>
                 )
-            })
+            }): <h1>No User is accepted till now</h1>
             }
         </>
     )
