@@ -18,8 +18,8 @@ const Home = () => {
     return (
         <>
             <div style={{textAlign:"center"}}>
+                <Link to="/accepted-users"><button>Accepted List</button></Link>
                 <Link to="/rejected-users"><button>Rejected List</button></Link>
-                <button>Accepted List</button>
             </div>
             {data.length > 0 && data.map((ele,index) => {
                 return (
@@ -31,6 +31,7 @@ const Home = () => {
                             <div>Phone : {ele.phone}</div>
                             <div>Website : {ele.website}</div>
                         </Link>
+                        <hr/>
                     </div>
                 )
             })
