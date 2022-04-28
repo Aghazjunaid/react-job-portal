@@ -4,10 +4,12 @@ import AcceptedPage from "../pages/Accepted";
 import Home from "../pages/Home";
 import RejectedPage from "../pages/Rejected";
 import UserDetail from "../pages/User-detail";
+import Header from "./Header";
 
 const Layout = () => {
     return (
         <>
+            <Header/>
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path='/user/:id' element={<UserDetail/>} />

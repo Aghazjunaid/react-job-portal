@@ -35,10 +35,6 @@ const Home = () => {
         <>
             {!isLoading ? 
             <div>
-                <div style={{textAlign:"center"}}>
-                    <Link to="/accepted-users"><button>Accepted List</button></Link>
-                    <Link to="/rejected-users"><button>Rejected List</button></Link>
-                </div>
                 {data.length > 0 && data.map((ele,index) => {
                     return (
                         <div key={index}>
