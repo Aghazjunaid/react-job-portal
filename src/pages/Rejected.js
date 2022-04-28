@@ -30,7 +30,7 @@ const RejectedPage = () => {
                         <div key={ele.id} className="card-design">
                             <div className="card">
                                 <div className="card-header">
-                                    <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+                                    <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="image" />
                                 </div>
                                 <div className="card-body">
                                     <span className="tag tag-teal">www.{ele.website}</span>
@@ -39,6 +39,9 @@ const RejectedPage = () => {
                                     </h4>
                                     <p>
                                         {ele.email}
+                                    </p>
+                                    <p>
+                                        {ele.phone}
                                     </p>
                                     <div>
                                         <Button variant="danger" onClick={() => deleteUser(ele)}>Remove</Button>
