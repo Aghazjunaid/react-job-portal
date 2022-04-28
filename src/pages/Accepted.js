@@ -5,7 +5,7 @@ const AcceptedPage = () => {
     const [data,setData] = useState([])
 
     useEffect(()=>{
-        let acceptedData = localStorage.getItem("accepted")
+        const acceptedData = localStorage.getItem("accepted")
         setData(JSON.parse(acceptedData))
     },[])
     return (
