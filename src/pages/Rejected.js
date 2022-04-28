@@ -23,7 +23,7 @@ const RejectedPage = () => {
 
     return (
         <>
-            {data ? data.map((ele) => {
+            {data?.length > 0 ? data.map((ele) => {
                 return (
                     <div key={ele.id} style={{display:"flex", justifyContent:"space-around"}}>
                         <div>
