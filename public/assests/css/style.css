@@ -27,9 +27,12 @@
 .card-design{
     position: relative;
 }
+.card-design a{
+    text-decoration: none;
+}
 .card-conatainer{
     display: flex;
-    gap: 40px;
+    gap: 80px;
     flex-wrap: wrap;
 }
 
