@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 
 const UserDetail = () => {
     const [user, setUser] = useState({})
-
+    
     const params = useParams()
     const navigate = useNavigate()
 
@@ -15,18 +15,22 @@ const UserDetail = () => {
     },[])
 
     console.log(user)
+
+    function getUserData(userBody){
+        const userData = localStorage.getItem('users')
+        const newArr = JSON.parse(userData).filter(ele => ele.id !== userBody.id)
+        localStorage.setItem('users',JSON.stringify(newArr))
+    }
+
     function acceptFunc(){
         const acceptedData = localStorage.getItem("accepted")
-        const userData = localStorage.getItem('users')
-        const newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
-        localStorage.setItem('users',JSON.stringify(newArr))
+        getUserData(user)
         if(acceptedData){
             const parsedData = JSON.parse(acceptedData)
             parsedData.push(user)
             localStorage.setItem("accepted",JSON.stringify(parsedData))
         } else {
-            const arr = []
-            arr.push(user)
+            const arr = [user]
             localStorage.setItem("accepted",JSON.stringify(arr))
         }
         alert("User is accepted")
@@ -35,16 +39,13 @@ const UserDetail = () => {
 
     function rejectFun(){
         const acceptedData = localStorage.getItem("rejected")
-        const userData = localStorage.getItem('users')
-        const newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
-        localStorage.setItem('users',JSON.stringify(newArr))
+        getUserData(user)
         if(acceptedData){
             const parsedData = JSON.parse(acceptedData)
             parsedData.push(user)
             localStorage.setItem("rejected",JSON.stringify(parsedData))
         } else {
-            const arr = []
-            arr.push(user)
+            const arr = [user]
             localStorage.setItem("rejected",JSON.stringify(arr))
         }
         alert("User is rejected")
