@@ -1,17 +1,25 @@
 import React,{useEffect,useState} from "react"
 import { useParams, useNavigate } from "react-router-dom"
+import Loader from "../components/Loader"
 
 const UserDetail = () => {
     const [user, setUser] = useState({})
-    
+    const [isLoading, setIsLoading] = useState(false)
     const params = useParams()
     const navigate = useNavigate()
 
     useEffect(()=>{
+        setIsLoading(true)
         fetch('https://jsonplaceholder.typicode.com/users/'+params.id)
         .then(res => res.json())
-        .then(result => setUser(result))
-        .catch(err => console.log(err))
+        .then(result => {
+            setUser(result)
+            setIsLoading(false)
+        })
+        .catch(err => {
+            console.log(err) 
+            setIsLoading(false)
+        })
     },[])
 
     console.log(user)
@@ -54,17 +62,20 @@ const UserDetail = () => {
 
     return (
         <>
-            <div style={{textAlign:"center"}}>
-                <button onClick={acceptFunc}>Accept</button>
-                <button onClick={rejectFun}>Reject</button>
-            </div>
+            {!isLoading ? 
             <div>
-                <h3>Name : {user.name}</h3>
-                <div>Id : {user.id}</div>
-                <div>Email : {user.email}</div>
-                <div>Phone : {user.phone}</div>
-                <div>Website : {user.website}</div>
-            </div>
+                <div style={{textAlign:"center"}}>
+                    <button onClick={acceptFunc}>Accept</button>
+                    <button onClick={rejectFun}>Reject</button>
+                </div>
+                <div>
+                    <h3>Name : {user.name}</h3>
+                    <div>Id : {user.id}</div>
+                    <div>Email : {user.email}</div>
+                    <div>Phone : {user.phone}</div>
+                    <div>Website : {user.website}</div>
+                </div>
+            </div> : <Loader/>}
         </>
     )
 }
