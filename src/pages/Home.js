@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     const [data, setData] = useState([])
+    
     function getUsers(){
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
@@ -14,7 +15,7 @@ const Home = () => {
     }
 
     useEffect(()=>{
-        let userData = localStorage.getItem('users')
+        const userData = localStorage.getItem('users')
         if(userData){
             setData(JSON.parse(userData))
         }else{

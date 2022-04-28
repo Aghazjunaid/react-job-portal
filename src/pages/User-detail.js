@@ -4,8 +4,8 @@ import { useParams, useNavigate } from "react-router-dom"
 const UserDetail = () => {
     const [user, setUser] = useState({})
 
-    let params = useParams()
-    let navigate = useNavigate()
+    const params = useParams()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users/'+params.id)
@@ -16,16 +16,16 @@ const UserDetail = () => {
 
     console.log(user)
     function acceptFunc(){
-        let acceptedData = localStorage.getItem("accepted")
-        let userData = localStorage.getItem('users')
-        let newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
+        const acceptedData = localStorage.getItem("accepted")
+        const userData = localStorage.getItem('users')
+        const newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
         localStorage.setItem('users',JSON.stringify(newArr))
         if(acceptedData){
-            let parsedData = JSON.parse(acceptedData)
+            const parsedData = JSON.parse(acceptedData)
             parsedData.push(user)
             localStorage.setItem("accepted",JSON.stringify(parsedData))
         } else {
-            let arr = []
+            const arr = []
             arr.push(user)
             localStorage.setItem("accepted",JSON.stringify(arr))
         }
@@ -34,16 +34,16 @@ const UserDetail = () => {
     }
 
     function rejectFun(){
-        let acceptedData = localStorage.getItem("rejected")
-        let userData = localStorage.getItem('users')
-        let newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
+        const acceptedData = localStorage.getItem("rejected")
+        const userData = localStorage.getItem('users')
+        const newArr = JSON.parse(userData).filter(ele => ele.id !== user.id)
         localStorage.setItem('users',JSON.stringify(newArr))
         if(acceptedData){
-            let parsedData = JSON.parse(acceptedData)
+            const parsedData = JSON.parse(acceptedData)
             parsedData.push(user)
             localStorage.setItem("rejected",JSON.stringify(parsedData))
         } else {
-            let arr = []
+            const arr = []
             arr.push(user)
             localStorage.setItem("rejected",JSON.stringify(arr))
         }

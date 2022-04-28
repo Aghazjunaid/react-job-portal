@@ -5,7 +5,7 @@ const RejectedPage = () => {
     const [data,setData] = useState([])
 
     useEffect(()=>{
-        let rejectedData = localStorage.getItem("rejected")
+        const rejectedData = localStorage.getItem("rejected")
         setData(JSON.parse(rejectedData))
     },[])
     return (
