@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from "react";
 
-
 const RejectedPage = () => {
     const [data,setData] = useState([])
 
@@ -8,6 +7,7 @@ const RejectedPage = () => {
         const rejectedData = localStorage.getItem("rejected")
         setData(JSON.parse(rejectedData))
     },[])
+
     return (
         <>
             {data ? data.map((ele,index) => {

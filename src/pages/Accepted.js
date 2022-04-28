@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from "react";
 
-
 const AcceptedPage = () => {
     const [data,setData] = useState([])
 
@@ -8,6 +7,7 @@ const AcceptedPage = () => {
         const acceptedData = localStorage.getItem("accepted")
         setData(JSON.parse(acceptedData))
     },[])
+
     return (
         <>
             {data ? data.map((ele,index) => {

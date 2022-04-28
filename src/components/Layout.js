@@ -5,7 +5,6 @@ import Home from "../pages/Home";
 import RejectedPage from "../pages/Rejected";
 import UserDetail from "../pages/User-detail";
 
-
 const Layout = () => {
     return (
         <>
