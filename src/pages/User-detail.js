@@ -67,16 +67,16 @@ const UserDetail = () => {
                     <Row>
                         <Col md={6}>
                             <div>
-                                <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="image" className="img-fluid"/>
+                                <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" alt="image" className="img-fluid"/>
                                 <div className="prodBtn mt-3">
-                                    <Button variant="warning" className="" onClick={acceptFunc}>Accept</Button>
-                                    <Button variant="primary" onClick={rejectFun}>Reject</Button>
+                                    <Button variant="success" className="" onClick={acceptFunc}>Accept</Button>
+                                    <Button variant="danger" onClick={rejectFun}>Reject</Button>
                                 </div>
                             </div>
                         </Col>
                         <Col md={6}>
                             <div>
-                                <h2 style={{color:"black"}} className="mt-5">{user.name}</h2>
+                                <h2 style={{color:"black"}} className="">{user.name}</h2>
                                 <div style={{fontSize:"15px", color:"black"}}>Username: {user.username}</div>
                                 <div style={{fontSize:"15px", color:"black"}}>Email: {user.email}</div>
                                 <div className="price mt-2" style={{color:"#850f0f"}}>Phone: { user.phone }</div>

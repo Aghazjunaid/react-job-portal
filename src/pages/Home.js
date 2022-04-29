@@ -41,7 +41,7 @@ const Home = () => {
                             <Link to={`/user/${ele.id}`}>
                                 <div className="card">
                                     <div className="card-header">
-                                        <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="image" />
+                                        <img src={`assests/images/${ele.id}.png`} alt="image" />
                                     </div>
                                     <div className="card-body">
                                         <span className="tag tag-teal">www.{ele.website}</span>
