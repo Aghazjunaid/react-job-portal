@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+import apiFunc from "../services/api";
 
 const Home = () => {
     const [data, setData] = useState([])
@@ -8,8 +9,7 @@ const Home = () => {
 
     function getUsers(){
         setIsLoading(true)
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
+        apiFunc.getAllUsers()
         .then(result => {
             setData(result)
             localStorage.setItem('users',JSON.stringify(result))
@@ -41,7 +41,7 @@ const Home = () => {
                             <Link to={`/user/${ele.id}`}>
                                 <div className="card">
                                     <div className="card-header">
-                                        <img src={`assests/images/${ele.id}.png`} alt="image" />
+                                        <img src={`assests/images/${ele.id}.png`} alt="user-image" />
                                     </div>
                                     <div className="card-body">
                                         <span className="tag tag-teal">www.{ele.website}</span>

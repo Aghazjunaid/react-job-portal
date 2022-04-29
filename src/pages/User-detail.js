@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Loader from "../components/Loader"
 import {Row,Col, Button, Container} from 'react-bootstrap' 
+import apiFunc from "../services/api";
 
 const UserDetail = () => {
     const [user, setUser] = useState({})
@@ -11,8 +12,7 @@ const UserDetail = () => {
 
     useEffect(()=>{
         setIsLoading(true)
-        fetch('https://jsonplaceholder.typicode.com/users/'+params.id)
-        .then(res => res.json())
+        apiFunc.getUserById(params.id)
         .then(result => {
             setUser(result)
             setIsLoading(false)
@@ -67,7 +67,7 @@ const UserDetail = () => {
                     <Row>
                         <Col md={6}>
                             <div>
-                                <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" alt="image" className="img-fluid"/>
+                                <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" alt="user-image" className="img-fluid"/>
                                 <div className="prodBtn mt-3">
                                     <Button variant="success" className="" onClick={acceptFunc}>Accept</Button>
                                     <Button variant="danger" onClick={rejectFun}>Reject</Button>
