@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const AcceptedPage = () => {
     const [data,setData] = useState([])
@@ -29,26 +30,28 @@ const AcceptedPage = () => {
                 {data?.length > 0 ? data.map((ele) => {
                     return (
                         <div key={ele.id} className="card-design">
-                            <div className="card">
-                                <div className="card-header">
-                                    <img src={`assests/images/${ele.id}.png`} alt="image" />
-                                </div>
-                                <div className="card-body">
-                                    <span className="tag tag-teal">www.{ele.website}</span>
-                                    <h4>
-                                        {ele.name}
-                                    </h4>
-                                    <p>
-                                        {ele.email}
-                                    </p>
-                                    <p>
-                                        {ele.phone}
-                                    </p>
-                                    <div>
-                                        <Button variant="danger" onClick={() => deleteUser(ele)}>Remove</Button>
+                            <Link to={`/user/${ele.id}`}>
+                                <div className="card">
+                                    <div className="card-header">
+                                        <img src={`assests/images/${ele.id}.png`} alt="image" />
+                                    </div>
+                                    <div className="card-body">
+                                        <span className="tag tag-teal">www.{ele.website}</span>
+                                        <h4>
+                                            {ele.name}
+                                        </h4>
+                                        <p>
+                                            {ele.email}
+                                        </p>
+                                        <p>
+                                            {ele.phone}
+                                        </p>
+                                        <div>
+                                            <Button variant="danger" onClick={() => deleteUser(ele)}>Remove</Button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                             </Link>
                             <span className="tag tag-id">{ele.id}</span>
                         </div>
                     )

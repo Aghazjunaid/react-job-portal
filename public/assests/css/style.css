@@ -21,9 +21,7 @@
     text-decoration: none;
     margin-right: 20px;
 }
-.nav-btns:hover{
-    color: rgb(210, 185, 185);
-}
+
 .card-design{
     position: relative;
 }
