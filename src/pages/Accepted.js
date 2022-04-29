@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+import { Button } from "react-bootstrap";
 
 const AcceptedPage = () => {
     const [data,setData] = useState([])
@@ -24,23 +25,36 @@ const AcceptedPage = () => {
     console.log(data)
     return (
         <>
-            {data?.length>0 ? data.map((ele) => {
-                return (
-                    <div key={ele.id} style={{display:"flex", justifyContent:"space-around"}}>
-                        <div>
-                            <h3>Name : {ele.name}</h3>
-                            <div>Id : {ele.id}</div>
-                            <div>Email : {ele.email}</div>
-                            <div>Phone : {ele.phone}</div>
-                            <div>Website : {ele.website}</div>
+            <div className="card-conatainer container">
+                {data?.length > 0 ? data.map((ele) => {
+                    return (
+                        <div key={ele.id} className="card-design">
+                            <div className="card">
+                                <div className="card-header">
+                                    <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="image" />
+                                </div>
+                                <div className="card-body">
+                                    <span className="tag tag-teal">www.{ele.website}</span>
+                                    <h4>
+                                        {ele.name}
+                                    </h4>
+                                    <p>
+                                        {ele.email}
+                                    </p>
+                                    <p>
+                                        {ele.phone}
+                                    </p>
+                                    <div>
+                                        <Button variant="danger" onClick={() => deleteUser(ele)}>Remove</Button>
+                                    </div>
+                                </div>
+                            </div>
+                            <span className="tag tag-id">{ele.id}</span>
                         </div>
-                        <div style={{marginTop:"20px"}}>
-                            <button onClick={() => deleteUser(ele)}>Delete</button>
-                        </div>
-                    </div>
-                )
-            }): <h1>No User is accepted till now</h1>
-            }
+                    )
+                    }): <h1>Accepted list is empty</h1>
+                }
+            </div>
         </>
     )
 }
