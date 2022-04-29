@@ -67,7 +67,7 @@ const UserDetail = () => {
                     <Row>
                         <Col md={6}>
                             <div>
-                                <img src={`/assests/images/${user.id}.png`} alt="user-image" className="img-fluid"/>
+                                <img src={`/assests/images/${user.id}.png`} alt="user-image" className="detail-image"/>
                                 <div className="prodBtn mt-3">
                                     <Button variant="success" className="" onClick={acceptFunc}>Accept</Button>
                                     <Button variant="danger" onClick={rejectFun}>Reject</Button>

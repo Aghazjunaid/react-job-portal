@@ -33,6 +33,11 @@
     gap: 80px;
     flex-wrap: wrap;
 }
+.detail-image{
+  height: 350px;
+    width: 540px;
+    object-fit: contain;
+}
 .price{
     font-size: 20px;
     font-weight: 600;

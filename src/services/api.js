@@ -10,7 +10,6 @@ const apiFunc = {
     getUserById : (id) => fetch('https://jsonplaceholder.typicode.com/users/'+id)
     .then(res => res.json())
     .then(result => {
-        debugger
         return result
     })
     .catch(err => {
