@@ -51,10 +51,9 @@ const RejectedPage = () => {
                             <span className="tag tag-id">{ele.id}</span>
                         </div>
                     )
-                    }): <h1>No User is rejected till now</h1>
+                    }): <h1>Rejected list is empty</h1>
                 }
             </div>
-            
         </>
     )
 }
