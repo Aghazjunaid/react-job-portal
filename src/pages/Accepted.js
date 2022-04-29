@@ -33,7 +33,7 @@ const AcceptedPage = () => {
                             <Link to={`/user/${ele.id}`}>
                                 <div className="card">
                                     <div className="card-header">
-                                        <img src={`assests/images/${ele.id}.png`} alt="image" />
+                                        <img src={`assests/images/${ele.id}.png`} alt="user-image" />
                                     </div>
                                     <div className="card-body">
                                         <span className="tag tag-teal">www.{ele.website}</span>
