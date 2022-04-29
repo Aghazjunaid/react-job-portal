@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Loader from "../components/Loader"
+import {Row,Col, Button, Container} from 'react-bootstrap' 
 
 const UserDetail = () => {
     const [user, setUser] = useState({})
@@ -41,7 +42,6 @@ const UserDetail = () => {
             const arr = [user]
             localStorage.setItem("accepted",JSON.stringify(arr))
         }
-        alert("User is accepted")
         navigate('/accepted-users')
     }
 
@@ -56,7 +56,6 @@ const UserDetail = () => {
             const arr = [user]
             localStorage.setItem("rejected",JSON.stringify(arr))
         }
-        alert("User is rejected")
         navigate('/rejected-users')
     }
 
@@ -64,17 +63,28 @@ const UserDetail = () => {
         <>
             {!isLoading ? 
             <div>
-                <div style={{textAlign:"center"}}>
-                    <button onClick={acceptFunc}>Accept</button>
-                    <button onClick={rejectFun}>Reject</button>
-                </div>
-                <div>
-                    <h3>Name : {user.name}</h3>
-                    <div>Id : {user.id}</div>
-                    <div>Email : {user.email}</div>
-                    <div>Phone : {user.phone}</div>
-                    <div>Website : {user.website}</div>
-                </div>
+                <Container className="mt-5">
+                    <Row>
+                        <Col md={6}>
+                            <div>
+                                <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="image" className="img-fluid"/>
+                                <div className="prodBtn mt-3">
+                                    <Button variant="warning" className="" onClick={acceptFunc}>Accept</Button>
+                                    <Button variant="primary" onClick={rejectFun}>Reject</Button>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col md={6}>
+                            <div>
+                                <h2 style={{color:"black"}} className="mt-5">{user.name}</h2>
+                                <div style={{fontSize:"15px", color:"black"}}>Username: {user.username}</div>
+                                <div style={{fontSize:"15px", color:"black"}}>Email: {user.email}</div>
+                                <div className="price mt-2" style={{color:"#850f0f"}}>Phone: { user.phone }</div>
+                                <div className="price mt-2" style={{color:"#850f0f"}}>Website: { user.website }</div>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div> : <Loader/>}
         </>
     )
